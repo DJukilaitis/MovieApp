@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MovieApp.Models;
+using MovieApp.Models.ViewModel;
 using MovieApp.Services.Interfaces;
 
 namespace MovieApp.Controllers
@@ -22,6 +23,13 @@ namespace MovieApp.Controllers
         public List<Movie> Get()
         {
             return _movieService.GetMovies();
+        }
+
+        [HttpPut()]
+        public Movie Update(MovieDTO model)
+        {
+            _movieService.UpdateMovie(model);
+            return null;
         }
     }
 }
