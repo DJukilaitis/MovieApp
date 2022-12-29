@@ -29,11 +29,6 @@ React App
 
 <nav className="navbar navbar-expand-sm bg-light navbar-dark">
   <ul className="navbar-nav">
-      <li className="nav-item- m-1">
-      <NavLink className="btn btn-light btn-outline-primary" to="/home">
-        Home
-      </NavLink>
-      </li>
 
       <li className="nav-item- m-1">
       <NavLink className="btn btn-light btn-outline-primary" to="/actors">
@@ -56,7 +51,7 @@ React App
   </ul>
 </nav>
   <Routes>
-  <Route path="/home" element={<Home />} />
+  <Route path="/" element={<Movies />} />
     <Route path='/movies' element={<Movies />}/>
     <Route path='/genres' element={<Genres />}/>
     <Route path='/actors' element={<Actors />}/>
