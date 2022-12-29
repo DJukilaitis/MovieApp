@@ -15,7 +15,9 @@ public partial class Movie
 
     public string Name { get; set; } = null!;
 
+    public int LeadActorId { get; set; }
+
     public virtual Genre Genre { get; set; } = null!;
 
-    public virtual ICollection<MovieActor> MovieActors { get; } = new List<MovieActor>();
+    public virtual Actor LeadActor { get; set; } = null!;
 }

@@ -4134,11 +4134,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\djuki\\Desktop\\MovieApp\\MovieApp\\MovieApp.csproj",
+      "projectUniqueName": "C:\\Users\\djuki\\Desktop\\FOlder\\MovieApp\\MovieApp.csproj",
       "projectName": "MovieApp",
-      "projectPath": "C:\\Users\\djuki\\Desktop\\MovieApp\\MovieApp\\MovieApp.csproj",
+      "projectPath": "C:\\Users\\djuki\\Desktop\\FOlder\\MovieApp\\MovieApp.csproj",
       "packagesPath": "C:\\Users\\djuki\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\djuki\\Desktop\\MovieApp\\MovieApp\\obj\\",
+      "outputPath": "C:\\Users\\djuki\\Desktop\\FOlder\\MovieApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\djuki\\AppData\\Roaming\\NuGet\\NuGet.Config",

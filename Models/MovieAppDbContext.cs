@@ -21,11 +21,10 @@ public partial class MovieAppDbContext : DbContext
 
     public virtual DbSet<Movie> Movies { get; set; }
 
-    public virtual DbSet<MovieActor> MovieActors { get; set; }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=.;Database=MovieAppDB;Trusted_Connection=True;TrustServerCertificate=true;");
+                         
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -59,33 +58,18 @@ public partial class MovieAppDbContext : DbContext
             entity.Property(e => e.Date).HasColumnType("date");
             entity.Property(e => e.Description).HasMaxLength(500);
             entity.Property(e => e.GenreId).HasColumnName("GenreID");
+            entity.Property(e => e.LeadActorId).HasColumnName("LeadActorID");
             entity.Property(e => e.Name).HasMaxLength(500);
 
             entity.HasOne(d => d.Genre).WithMany(p => p.Movies)
                 .HasForeignKey(d => d.GenreId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Movie__GenreID__4316F928");
-        });
 
-        modelBuilder.Entity<MovieActor>(entity =>
-        {
-            entity.HasKey(e => e.MovieActorId).HasName("PK__MovieAct__0F76A583EC46C0F3");
-
-            entity.ToTable("MovieActor");
-
-            entity.Property(e => e.MovieActorId).HasColumnName("MovieActorID");
-            entity.Property(e => e.ActorId).HasColumnName("ActorID");
-            entity.Property(e => e.MovieId).HasColumnName("MovieID");
-
-            entity.HasOne(d => d.Actor).WithMany(p => p.MovieActors)
-                .HasForeignKey(d => d.ActorId)
+            entity.HasOne(d => d.LeadActor).WithMany(p => p.Movies)
+                .HasForeignKey(d => d.LeadActorId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__MovieActo__Actor__48CFD27E");
-
-            entity.HasOne(d => d.Movie).WithMany(p => p.MovieActors)
-                .HasForeignKey(d => d.MovieId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__MovieActo__Movie__47DBAE45");
+                .HasConstraintName("FK__Movie__LeadActor__49C3F6B7");
         });
 
         OnModelCreatingPartial(modelBuilder);

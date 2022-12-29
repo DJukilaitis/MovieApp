@@ -9,5 +9,5 @@ public partial class Actor
 
     public string Name { get; set; } = null!;
 
-    public virtual ICollection<MovieActor> MovieActors { get; } = new List<MovieActor>();
+    public virtual ICollection<Movie> Movies { get; } = new List<Movie>();
 }
